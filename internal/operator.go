@@ -39,12 +39,12 @@ func NewOperator(
 }
 
 func (o *Operator) SyncAllProjects(ctx context.Context) error {
-	g, gctx := errgroup.WithContext(ctx)
+	g, _ := errgroup.WithContext(ctx)
 
 	for _, project := range o.config.Projects() {
 		p := project
 		g.Go(func() error {
-			err := o.SyncProject(gctx, p.Name)
+			err := o.SyncProject(ctx, p.Name)
 			if errors.Is(err, context.Canceled) {
 				return nil
 			}
