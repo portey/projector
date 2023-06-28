@@ -1,0 +1,9 @@
+debug-mode: false
+ssh-auth:
+  user: git
+  pem-file: ~/.ssh/id_rsa
+  password: ""
+projects:
+  - name: game-service
+    short: game
+    path: ~/projects/bellum/game-service
